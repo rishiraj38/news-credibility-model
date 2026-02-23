@@ -1,11 +1,11 @@
 pandas
 numpy
 scikit-learn
-streamlit
+streamlit>=1.38.0
+altair
 newspaper3k
 joblib
 lxml_html_clean
 beautifulsoup4
 requests
 matplotlib
-altair<5
