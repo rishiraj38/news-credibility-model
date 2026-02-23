@@ -1,0 +1,10 @@
+pandas
+numpy
+scikit-learn
+streamlit
+newspaper3k
+joblib
+lxml_html_clean
+beautifulsoup4
+requests
+matplotlib
