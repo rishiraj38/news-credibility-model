@@ -30,28 +30,28 @@ Key design goals:
 
 ```mermaid
 graph TD
-    A[User Input: Text or URL] --> B{Streamlit UI}
-    B -->|URL| C[URL Extraction: Newspaper3k + BeautifulSoup]
-    C --> D[Text Preprocessing]
+    A["User Input: Text or URL"] --> B{"Streamlit UI"}
+    B -->|URL| C["URL Extraction: Newspaper3k + BeautifulSoup"]
+    C --> D["Text Preprocessing"]
     B -->|Raw Text| D
 
     subgraph NLP Pipeline
-        D --> E[Regex Cleaning]
-        E --> F[Tokenization]
-        F --> G[TF-IDF Vectorization]
+        D --> E["Regex Cleaning"]
+        E --> F["Tokenization"]
+        F --> G["TF-IDF Vectorization"]
     end
 
     subgraph ML Models
-        G --> H1[Logistic Regression]
-        G --> H2[Decision Tree]
-        H1 -.->|Evaluation| I[Model Comparison]
+        G --> H1["Logistic Regression"]
+        G --> H2["Decision Tree"]
+        H1 -.->|Evaluation| I["Model Comparison"]
         H2 -.->|Evaluation| I
     end
 
-    I --> J[Final Model: Logistic Regression]
-    J --> K[Prediction + Confidence]
-    K --> L[Explainability (Top TF-IDF Patterns)]
-    L --> M[Streamlit Dashboard]
+    I --> J["Final Model: Logistic Regression"]
+    J --> K["Prediction + Confidence"]
+    K --> L["Explainability (Top TF-IDF Patterns)"]
+    L --> M["Streamlit Dashboard"]
 ```
 
 ## 📁 Project Structure
