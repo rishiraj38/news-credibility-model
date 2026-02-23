@@ -1,0 +1,15 @@
+{
+    "Logistic_Regression": {
+        "Accuracy": 0.9746218918226096,
+        "Precision": 0.9662739662739662,
+        "Recall": 0.9877213695395514,
+        "F1_Score": 0.976879962634283
+    },
+    "Decision_Tree": {
+        "Accuracy": 0.9946167649320687,
+        "Precision": 0.9936425712267483,
+        "Recall": 0.9964580873671782,
+        "F1_Score": 0.9950483376562131
+    },
+    "Best_Model": "Logistic_Regression"
+}
