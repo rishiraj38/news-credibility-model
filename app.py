@@ -195,19 +195,19 @@ if os.path.exists("metrics.json"):
     best = metrics.get("Best_Model", "Unknown")
     if best in metrics:
         st.sidebar.markdown(f"""
-        <div class="metric-card">
-            <div class="metric-label">Active Architecture</div>
-            <div class="metric-value">{best.replace('_', ' ')}</div>
-        </div>
-        <div class="metric-card">
-            <div class="metric-label">F1 Validation Score</div>
-            <div class="metric-value">{metrics[best]['F1_Score']:.4f}</div>
-        </div>
-        <div class="metric-card">
-            <div class="metric-label">Accuracy</div>
-            <div class="metric-value">{metrics[best].get('Accuracy', 0.0):.4f}</div>
-        </div>
-        """, unsafe_allow_html=True)
+<div class="metric-card">
+<div class="metric-label">Active Architecture</div>
+<div class="metric-value">{best.replace('_', ' ')}</div>
+</div>
+<div class="metric-card">
+<div class="metric-label">F1 Validation Score</div>
+<div class="metric-value">{metrics[best]['F1_Score']:.4f}</div>
+</div>
+<div class="metric-card">
+<div class="metric-label">Accuracy</div>
+<div class="metric-value">{metrics[best].get('Accuracy', 0.0):.4f}</div>
+</div>
+""", unsafe_allow_html=True)
 else:
     st.sidebar.warning("Telemetry offline. Train model first.")
 
@@ -278,27 +278,27 @@ if st.button("Execute Threat Analysis"):
             pills = "".join([f"<span class='pattern-pill'>{p}</span>" for p in patterns])
 
             st.markdown(f"""
-            <div class="result-box {result_class}">
-                <div class="result-title">
-                    {icon}
-                    <h2 style="margin: 0 !important; padding: 0 !important;">{label}</h2>
-                </div>
-                
-                <div class="confidence-container">
-                    <div class="confidence-label">Algorithm Confidence: <strong style="color: #ffffff;">{conf:.1f}%</strong></div>
-                    <div class="confidence-bar">
-                        <div class="confidence-fill" style="width: {conf}%"></div>
-                    </div>
-                </div>
-                
-                <div class="patterns-section">
-                    <div style="font-size: 0.85rem; color: #8b949e; text-transform: uppercase; margin-bottom: 10px; letter-spacing: 0.5px;">Primary Semantic Drivers</div>
-                    <div>
-                        {pills if pills else "<span class='pattern-pill'>Length Insufficient</span>"}
-                    </div>
-                </div>
-            </div>
-            """, unsafe_allow_html=True)
+<div class="result-box {result_class}">
+<div class="result-title">
+{icon}
+<h2 style="margin: 0 !important; padding: 0 !important;">{label}</h2>
+</div>
+
+<div class="confidence-container">
+<div class="confidence-label">Algorithm Confidence: <strong style="color: #ffffff;">{conf:.1f}%</strong></div>
+<div class="confidence-bar">
+<div class="confidence-fill" style="width: {conf}%"></div>
+</div>
+</div>
+
+<div class="patterns-section">
+<div style="font-size: 0.85rem; color: #8b949e; text-transform: uppercase; margin-bottom: 10px; letter-spacing: 0.5px;">Primary Semantic Drivers</div>
+<div>
+{pills if pills else "<span class='pattern-pill'>Length Insufficient</span>"}
+</div>
+</div>
+</div>
+""", unsafe_allow_html=True)
 
             # Feature Map Radar Chart Display
             st.markdown("<h3 style='text-align: center; color: #e6edf3; font-size: 1.3rem; margin-top: 10px;'>Credibility Feature Map</h3>", unsafe_allow_html=True)
