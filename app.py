@@ -221,45 +221,6 @@ else:
     user_input = st.text_input("Source URL:", placeholder="https://news.example.com/article-123")
     is_url = True
 
-# ---------------- RADAR CHART ----------------
-def render_radar_chart(conf, is_real):
-    # Set dark theme for matplotlib so it fits smoothly into the app
-    plt.style.use('dark_background')
-    
-    labels = ["Linguistic", "Entity", "Topic", "Style", "Sentiment"]
-    
-    # Generate realistic dynamic mock values based on confidence
-    base_score = float(conf) / 100.0
-    if is_real:
-        values = [base_score, min(base_score + 0.15, 0.95), base_score, min(base_score + 0.05, 0.9), min(base_score + 0.2, 0.98)]
-    else:
-        values = [max(base_score - 0.3, 0.1), max(base_score - 0.2, 0.1), base_score, max(base_score - 0.15, 0.1), max(base_score - 0.25, 0.05)]
-    
-    # Close the radar geometry
-    angles = np.linspace(0, 2 * np.pi, len(labels), endpoint=False)
-    values = np.concatenate((values, [values[0]]))
-    angles = np.concatenate((angles, [angles[0]]))
-    
-    # Create plot with transparent background
-    fig = plt.figure(figsize=(5, 5), facecolor='none')
-    ax = fig.add_subplot(111, polar=True)
-    ax.set_facecolor('none')
-    
-    # Styling and Fill
-    color_hex = '#3fb950' if is_real else '#ff7b72'
-    ax.plot(angles, values, color=color_hex, linewidth=2.5)
-    ax.fill(angles, values, color=color_hex, alpha=0.2)
-    
-    # Grid lines & Labels
-    ax.set_thetagrids(angles[:-1] * 180 / np.pi, labels, fontsize=11, color='#c9d1d9')
-    ax.set_rticks([0.2, 0.4, 0.6, 0.8, 1.0])
-    ax.set_yticklabels([])
-    ax.grid(color='#30363d', linestyle='--', linewidth=1)
-    ax.spines['polar'].set_color('#30363d')
-    ax.set_ylim(0, 1)
-    
-    return fig
-
 # ---------------- PREDICTION ----------------
 st.markdown("<br>", unsafe_allow_html=True)
 if st.button("Execute Threat Analysis"):
@@ -299,10 +260,3 @@ if st.button("Execute Threat Analysis"):
 </div>
 </div>
 """, unsafe_allow_html=True)
-
-            # Feature Map Radar Chart Display
-            st.markdown("<h3 style='text-align: center; color: #e6edf3; font-size: 1.3rem; margin-top: 10px;'>Credibility Feature Map</h3>", unsafe_allow_html=True)
-            
-            # Pass realistic mock confidence and truth label to radar chart
-            radar_fig = render_radar_chart(conf, is_real)
-            st.pyplot(radar_fig, transparent=True)

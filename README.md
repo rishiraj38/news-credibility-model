@@ -128,7 +128,6 @@ A premium interactive dashboard including:
 * Particle background animation
 * SVG iconography (no emoji)
 * Animated confidence bar
-* Radar chart credibility visualization
 * Semantic pattern pill tags
 * Sidebar model telemetry
 * Smooth loading animation
@@ -145,10 +144,10 @@ A premium interactive dashboard including:
 
 ## 📊 Evaluation Summary
 
-| Model | F1 Score |
-|---|---|
-| Logistic Regression | ~0.97 |
-| Decision Tree | ~0.99 |
+| Model | Accuracy | Precision | Recall | F1 Score |
+|---|---|---|---|---|
+| Logistic Regression | 0.9746 | 0.9663 | 0.9877 | 0.9769 |
+| Decision Tree | 0.9946 | 0.9936 | 0.9965 | 0.9950 |
 
 **Final Deployment Model: Logistic Regression**
 Reason: Better generalization and robustness against TF-IDF overfitting.
